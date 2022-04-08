@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { numberLimit, baseUrl } from "./variables";
-import { Button, Li, Section, Ul } from "./card/card";
+import { Button, Li, Section, Ul, LiAtributes, P, Img } from "./card/card";
 
 async function getColectionPokemons() {
   const response = await fetch(`${baseUrl}?limit=${numberLimit}`);
@@ -17,21 +17,41 @@ async function getPokemons(param) {
 }
 
 const PokemonsList = (colection) => {
-  return (
-    <>
-      <Ul>
-        {colection.pokemons.map((props, index) => {
-          console.log(props);
-          return (
+  const resultPokemonListe = colection.pokemons.map((props, index) => {
+    console.log(colection.pokemons);
+    const name = props.name;
+    const image = props.sprites.front_default;
+    const types = props.types.map((types, index) => {
+      const type = types.type.name
+      return  (
+        <>
+          <LiAtributes key={index} >
+            <P>{type}</P>
+          </LiAtributes>
+        </>
+      )
+    })
+
+    return (
+      <>
+          
             <Li key={index}>
-              <p>{props.name} teste</p>
+              <Img src={image} alt="imagem pokemon frente" />
+              <h2>{name}</h2>
+              <div>{types}</div>  
             </Li>
-          );
-        })}
-      </Ul>
-      <Button>Mais Pokemons</Button>
-    </>
-  );
+            
+
+          
+      </>
+    );
+  });
+
+  return (
+    <Ul>
+        {resultPokemonListe}
+    </Ul>
+  )
 };
 
 const ColectionOfPokemons = () => {
@@ -42,18 +62,28 @@ const ColectionOfPokemons = () => {
     const fetchData = async () => {
       const colectionPokemons = await getColectionPokemons();
       const data = await getPokemons(colectionPokemons);
-      // console.log(data);
-      // console.log(colectionPokemons)
-      setPokemons({
-        pokemons: data,
+      data.map((data) => {
+        Promise.all([data]).then((value) => {
+          setPokemons({
+            pokemons: value,
+          });
+        });
       });
     };
     fetchData();
   }, []);
+
+  // function addPokemon(newPokemon) {
+  //   setPokemons({
+  //     pokemons: [...colection.pokemons, newPokemon]
+  //   });
+  // }
+
   // console.log(colection.pokemons);
   return (
     <Section>
       <PokemonsList pokemons={colection.pokemons} />
+      <Button>Mais Pokemons</Button>
     </Section>
   );
 };
