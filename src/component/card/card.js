@@ -16,6 +16,8 @@ export const Section = styled.section`
   align-itens: center;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
+  font-size: 26px;
 `;
 
 export const Ul = styled.ul`
@@ -35,6 +37,8 @@ export const Button = styled.button`
   margin: 2px;
   border-radius: 5px;
   width: 30%;
+  font-size: 24px;
+  font-weight: 700;
 `;
 
 export const LiAtributes = styled.ol`

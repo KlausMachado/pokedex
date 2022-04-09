@@ -18,40 +18,33 @@ async function getPokemons(param) {
 
 const PokemonsList = (colection) => {
   const resultPokemonListe = colection.pokemons.map((props, index) => {
-    console.log(colection.pokemons);
     const name = props.name;
     const image = props.sprites.front_default;
     const types = props.types.map((types, index) => {
-      const type = types.type.name
-      return  (
+      const type = types.type.name;
+      return (
         <>
-          <LiAtributes key={index} >
+          <LiAtributes key={index}>
             <P>{type}</P>
           </LiAtributes>
         </>
-      )
-    })
+      );
+    });
 
     return (
       <>
-          
-            <Li key={index}>
-              <Img src={image} alt="imagem pokemon frente" />
-              <h2>{name}</h2>
-              <div>{types}</div>  
-            </Li>
-            
-
-          
+        <Ul>
+          <Li key={index}>
+            <Img src={image} alt="imagem pokemon frente" />
+            <h2>{name}</h2>
+            {types}
+          </Li>
+        </Ul>
       </>
     );
   });
 
-  return (
-    <Ul>
-        {resultPokemonListe}
-    </Ul>
-  )
+  return resultPokemonListe;
 };
 
 const ColectionOfPokemons = () => {
@@ -72,14 +65,6 @@ const ColectionOfPokemons = () => {
     };
     fetchData();
   }, []);
-
-  // function addPokemon(newPokemon) {
-  //   setPokemons({
-  //     pokemons: [...colection.pokemons, newPokemon]
-  //   });
-  // }
-
-  // console.log(colection.pokemons);
   return (
     <Section>
       <PokemonsList pokemons={colection.pokemons} />
