@@ -27,7 +27,7 @@ export const Ul = styled.ul`
   wrap: wrap;
 `;
 export const Li = styled.li`
-  border: solid 2px black;
+  border: solid 2px #bcbfb3;
   border-radius: 5px;
   list-style-type: none;
 `;
@@ -41,7 +41,7 @@ export const Button = styled.button`
   font-weight: 700;
 `;
 
-export const LiAtributes = styled.ol`
+export const Ol = styled.ol`
   border: solid 1px #bcbfb3;
   margin: 5px;
   padding: 2px;
@@ -49,12 +49,17 @@ export const LiAtributes = styled.ol`
   border-radius: 8px;
 `;
 export const P = styled.p`
-  margin: 1px;
+  margin: 10px;
   font-weight: 400;
-  font-size: 24px
+  font-size: 24px;
 `;
 
 export const Img = styled.img`
-     width: 150px;
-     height: 150px;
-`
+  width: 150px;
+  height: 150px;
+`;
+export const H1 = styled.h1`
+  font-weight: bold;
+  font-size: 40px;
+  text-shadow: grey 0.1em 0.1em 0.2em;
+`;
