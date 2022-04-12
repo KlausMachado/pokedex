@@ -1,14 +1,14 @@
 import "./App.css";
-import { Infos } from "./component/card-infos";
-import { GlobalStyled } from "./component/card/card";
-import ColectionOfPokemons from "./component/getPokemon";
+import { Infos } from "./component/card/card-infos";
+import { GlobalStyled } from "./component/card/tags-stayle";
+import ColectionOfPokemons from "./component/renderPokemonList";
 
 function App() {
   return (
     <>
       <GlobalStyled />
       <ColectionOfPokemons />
-      <Infos/>
+      <Infos />
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { Img, Section, H1, Ul, Ol, Li, P } from "./card/card";
+import { Img, Section, H1, Ul, Ol, Li, P } from "./tags-stayle";
 
 export const Infos = () => {
   return (
