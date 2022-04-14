@@ -1,7 +1,8 @@
-import { getPokemons, getColectionPokemons } from "./getPokemon";
+import { getPokemons, getColectionPokemons } from "../getPokemon";
 import { useEffect, useState } from "react";
-import { Button, Section } from "./card/tags-stayle";
+import { Button, Section } from "./tags-stayle";
 import { PokemonsList } from "./pokemonList";
+import { MorePokemons } from "./morePokemons";
 
 const ColectionOfPokemons = () => {
   const [colection, setPokemons] = useState({
@@ -11,23 +12,18 @@ const ColectionOfPokemons = () => {
     const fetchData = async () => {
       const colectionPokemons = await getColectionPokemons();
       const data = await getPokemons(colectionPokemons);
-      data.map((data) => {
-        Promise.all([data]).then((value) => {
-          console.log(value);
-          setPokemons({
-            pokemons: value,
-          });
-        });
+      const result = await Promise.all(data);
+      setPokemons({
+        pokemons: result,
       });
     };
     fetchData();
   }, []);
-  console.log(colection.pokemons);
 
   return (
     <Section>
       <PokemonsList pokemons={colection.pokemons} />
-      <Button>Mais Pokemons</Button>
+      <Button onClick={MorePokemons()}>Mais Pokemons</Button>
     </Section>
   );
 };

@@ -8,14 +8,14 @@ export const GlobalStyled = createGlobalStyle`
 `;
 
 export const Section = styled.section`
-  padding: 10px;
+  padding: 5% 15%;
   margin: 20px;
   border-radius: 25px;
-  width: 60vw;
   display: flex;
   align-itens: center;
   justify-content: center;
   flex-direction: column;
+  flex-wrap: wrap;
   text-align: center;
   font-size: 26px;
 `;
@@ -24,21 +24,27 @@ export const Ul = styled.ul`
   display: flex;
   align-itens: center;
   justify-content: space-between;
-  wrap: wrap;
+  flex-wrap: wrap;
 `;
 export const Li = styled.li`
   border: solid 2px #bcbfb3;
   border-radius: 5px;
   list-style-type: none;
+  margin-bottom: 10px;
 `;
 
 export const Button = styled.button`
   padding: 5px;
   margin: 2px;
   border-radius: 5px;
-  width: 30%;
+  width: 10rem;
+  height: 4rem;
   font-size: 24px;
   font-weight: 700;
+  background: linear-gradient(to bottom, #E4E7E0 , #9cd8e5);
+  :hover {
+    background: linear-gradient(to top, #E4E7E0 , #9cd8e5);
+  }
 `;
 
 export const Ol = styled.ol`
