@@ -3,14 +3,16 @@ import { useEffect, useState } from "react";
 import { Button, Section } from "./tags-stayle";
 import { PokemonsList } from "./pokemonList";
 import { MorePokemons } from "./morePokemons";
+import { numberLimit } from "../variables";
 
 const ColectionOfPokemons = () => {
   const [colection, setPokemons] = useState({
     pokemons: [],
   });
+
   useEffect(() => {
     const fetchData = async () => {
-      const colectionPokemons = await getColectionPokemons();
+      const colectionPokemons = await getColectionPokemons(numberLimit.value);
       const data = await getPokemons(colectionPokemons);
       const result = await Promise.all(data);
       setPokemons({
@@ -23,7 +25,13 @@ const ColectionOfPokemons = () => {
   return (
     <Section>
       <PokemonsList pokemons={colection.pokemons} />
-      <Button onClick={MorePokemons()}>Mais Pokemons</Button>
+      <Button
+        onClick={() => {
+          MorePokemons();
+        }}
+      >
+        Mais Pokemons
+      </Button>
     </Section>
   );
 };

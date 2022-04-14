@@ -31,11 +31,14 @@ export const Li = styled.li`
   border-radius: 5px;
   list-style-type: none;
   margin-bottom: 10px;
+  :hover {
+    background: linear-gradient(200deg, #fff , #9cd8e5);
+  }
 `;
 
 export const Button = styled.button`
   padding: 5px;
-  margin: 2px;
+  margin-left: 40%;
   border-radius: 5px;
   width: 10rem;
   height: 4rem;

@@ -1,7 +1,8 @@
 import { getColectionPokemons } from "../getPokemon"
+import { numberLimit } from "../variables";
 
 
 export const MorePokemons = () => {
-    const addPokemons = getColectionPokemons()
-    // console.log(addPokemons)
+     numberLimit.value += 5
+     return getColectionPokemons(numberLimit.value)
 }
