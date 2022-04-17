@@ -1,4 +1,4 @@
-import { Infos } from "./pokemonCard";
+import { PokemonCardInfo } from "./pokemonCard";
 import { Li, Ul, P, Img } from "./tags-stayle";
 
 export const PokemonsList = (colection) => {
@@ -9,9 +9,13 @@ export const PokemonsList = (colection) => {
         const image = props.sprites.front_default;
         const id = props.id;
         const types = props.types;
-
         return (
-          <Li key={id} onClick={<Infos/>}>
+          <Li
+            key={id}
+            onClick={() => {
+              <PokemonCardInfo props={props} />
+            }}
+          >
             <Img src={image} alt="imagem pokemon frente" />
             <h2>{name}</h2>
 
