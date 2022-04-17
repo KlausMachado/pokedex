@@ -2,7 +2,6 @@ import { getPokemons, getColectionPokemons } from "../getPokemon";
 import { useEffect, useState } from "react";
 import { Button, Section } from "./tags-stayle";
 import { PokemonsList } from "./pokemonList";
-import { MorePokemons } from "./morePokemons";
 import { numberLimit } from "../variables";
 
 const ColectionOfPokemons = () => {
@@ -26,8 +25,14 @@ const ColectionOfPokemons = () => {
     <Section>
       <PokemonsList pokemons={colection.pokemons} />
       <Button
-        onClick={() => {
-          MorePokemons();
+        onClick={async () => {
+          const newValue = (numberLimit.value += 5);
+          const colectionPokemons = await getColectionPokemons(newValue);
+          const data = await getPokemons(colectionPokemons);
+          const result = await Promise.all(data);
+          return setPokemons({
+            pokemons: result,
+          });
         }}
       >
         Mais Pokemons

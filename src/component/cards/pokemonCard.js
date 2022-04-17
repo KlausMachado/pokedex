@@ -1,6 +1,11 @@
 import { Img, Section, H1, Ul, Ol, Li, P } from "./tags-stayle";
 
-export const Infos = () => {
+export const Infos = (pokemon) => {
+  const name = pokemon.name;
+  const image = pokemon.sprites.front_default;
+  const types = pokemon.types;
+  const moves = pokemon.moves;
+
   return (
     <>
       <Section
@@ -37,13 +42,13 @@ export const Infos = () => {
           }}
         >
           <Li>
-            <P style={{fontWeight: 'bold'}}>
+            <P style={{ fontWeight: "bold" }}>
               Abilities: Lorem ipsum dolor sit amet consectetur adipisicing
               elit. Quos repellat voluptas nam ut, temporibus eius sit
               laboriosam saepe fuga deserunt, vel animi! Incidunt reprehenderit
               sint magni autem dolores cupiditate assumenda.
             </P>
-            <P style={{fontWeight: 'bold'}}>
+            <P style={{ fontWeight: "bold" }}>
               Abilities: Lorem ipsum dolor sit amet consectetur, adipisicing
               elit. Dolorem vel in nisi quibusdam eos, molestias adipisci iste
               cupiditate! Qui suscipit nihil vero voluptates! Commodi
