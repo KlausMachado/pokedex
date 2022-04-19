@@ -1,12 +1,12 @@
 import "./App.css";
 import { GlobalStyled } from "./component/cards/tags-stayle";
-import ColectionOfPokemons from "./component/cards/renderPokemonList";
+import { AppRoutes } from "./pages/routes";
 
 function App() {
   return (
     <>
       <GlobalStyled />
-      <ColectionOfPokemons />
+      <AppRoutes />
     </>
   );
 }

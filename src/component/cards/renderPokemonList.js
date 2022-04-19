@@ -9,14 +9,18 @@ const ColectionOfPokemons = () => {
     pokemons: [],
   });
 
+  const setPokemon = async () => {
+    const colectionPokemons = await getColectionPokemons(numberLimit.value);
+    const data = await getPokemons(colectionPokemons);
+    const result = await Promise.all(data);
+    setPokemons({
+      pokemons: result,
+    });
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      const colectionPokemons = await getColectionPokemons(numberLimit.value);
-      const data = await getPokemons(colectionPokemons);
-      const result = await Promise.all(data);
-      setPokemons({
-        pokemons: result,
-      });
+    const fetchData = () => {
+      setPokemon();
     };
     fetchData();
   }, []);
@@ -26,13 +30,8 @@ const ColectionOfPokemons = () => {
       <PokemonsList pokemons={colection.pokemons} />
       <Button
         onClick={async () => {
-          const newValue = (numberLimit.value += 5);
-          const colectionPokemons = await getColectionPokemons(newValue);
-          const data = await getPokemons(colectionPokemons);
-          const result = await Promise.all(data);
-          return setPokemons({
-            pokemons: result,
-          });
+          numberLimit.value += 5;
+          setPokemon();
         }}
       >
         Mais Pokemons
