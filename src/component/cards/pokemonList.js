@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { getPokemonId } from "../getPokemon";
 import { PokemonCardInfo } from "./pokemonCard";
 import { Li, Ul, P, Img } from "./tags-stayle";
 
@@ -13,16 +15,18 @@ export const PokemonsList = (colection) => {
           <Li
             key={id}
             onClick={() => {
-              <PokemonCardInfo props={props} />
+              return getPokemonId(id);
             }}
           >
-            <Img src={image} alt="imagem pokemon frente" />
-            <h2>{name}</h2>
+            <Link to={""} style={{ textDecoration: "none", color: "black" }}>
+              <Img src={image} alt="imagem pokemon frente" />
+              <h2>{name}</h2>
 
-            {types.map((types, i) => {
-              const type = types.type.name;
-              return <P key={i}>{type}</P>;
-            })}
+              {types.map((types, i) => {
+                const type = types.type.name;
+                return <P key={i}>{type}</P>;
+              })}
+            </Link>
           </Li>
         );
       })}
