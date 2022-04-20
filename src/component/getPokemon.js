@@ -15,10 +15,3 @@ export async function getPokemons(param) {
     return responseJson;
   });
 }
-
-export async function getPokemonId(id) {
-  const response = await fetch(`${baseUrl}${id}`)
-  const responseJson = await response.json()
-  console.log(responseJson)
-  return responseJson
-}

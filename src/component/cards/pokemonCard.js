@@ -1,9 +1,14 @@
+import { baseUrl } from "../variables";
 import { Img, Section, H1, Ul, Ol, Li, P } from "./tags-stayle";
 
-export function PokemonCardInfo(pokemon) {
-  const types = pokemon.types;
-  const moves = pokemon.moves;
-  const abilities = pokemon.abilities;
+export async function PokemonCardInfo(id) {
+  const response = await fetch(`${baseUrl}${id}`)
+  const responseJson = await response.json()
+  console.log(responseJson)
+
+  const types = responseJson.types;
+  const moves = responseJson.moves;
+  const abilities = responseJson.abilities;
 
   return (
     <Section
@@ -13,8 +18,8 @@ export function PokemonCardInfo(pokemon) {
         padding: "50px",
       }}
     >
-      <Img src={pokemon.sprites.front_default} />
-      <H1>{pokemon.name}</H1>
+      <Img src={responseJson.sprites.front_default} />
+      <H1>{responseJson.name}</H1>
       <Ul style={{ justifyContent: "center" }}>
         {types.map((types, i) => {
           const type = types.type.name;
