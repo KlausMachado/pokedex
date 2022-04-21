@@ -32,7 +32,7 @@ export const Li = styled.li`
   list-style-type: none;
   margin-bottom: 10px;
   :hover {
-    background: linear-gradient(200deg, #fff , #9cd8e5);
+    background: linear-gradient(200deg, #fff , #57acdc);
   }
 `;
 
@@ -44,9 +44,9 @@ export const Button = styled.button`
   height: 4rem;
   font-size: 24px;
   font-weight: 700;
-  background: linear-gradient(to bottom, #E4E7E0 , #9cd8e5);
+  background: linear-gradient(to bottom, #E4E7E0 , #57acdc);
   :hover {
-    background: linear-gradient(to top, #E4E7E0 , #9cd8e5);
+    background: linear-gradient(to top, #E4E7E0 , #57acdc);
   }
 `;
 
