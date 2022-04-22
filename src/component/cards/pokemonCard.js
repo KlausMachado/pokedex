@@ -1,14 +1,28 @@
 import { baseUrl } from "../variables";
 import { Img, Section, H1, Ul, Ol, Li, P } from "./tags-stayle";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-export async function PokemonCardInfo(id) {
-  const response = await fetch(`${baseUrl}${id}`)
-  const responseJson = await response.json()
-  console.log(responseJson)
+async function getPokemon(id) {
+  const response = await fetch(`${baseUrl}${id}`);
+  const result = await response.json();
+  return result;
+}
 
-  const types = responseJson.types;
-  const moves = responseJson.moves;
-  const abilities = responseJson.abilities;
+export function PokemonCardInfo() {
+  const [pokemon, setPokemon] = useState({});
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await getPokemon(id);
+      setPokemon({
+        pokemon: result,
+      });
+    };
+    fetchData();
+  }, []);
 
   return (
     <Section
@@ -18,10 +32,10 @@ export async function PokemonCardInfo(id) {
         padding: "50px",
       }}
     >
-      <Img src={responseJson.sprites.front_default} />
-      <H1>{responseJson.name}</H1>
+      <Img src={pokemon.sprites.front_default} />
+      <H1>{pokemon.name}</H1>
       <Ul style={{ justifyContent: "center" }}>
-        {types.map((types, i) => {
+        {pokemon.map((types, i) => {
           const type = types.type.name;
           return <Ol key={i}>{type}</Ol>;
         })}
@@ -34,7 +48,7 @@ export async function PokemonCardInfo(id) {
         }}
       >
         <Li>
-          {moves.map((moves, i) => {
+          {pokemon.map((moves, i) => {
             const move = moves.move.name;
             return <P key={i}>{move}</P>;
           })}
@@ -47,7 +61,7 @@ export async function PokemonCardInfo(id) {
         }}
       >
         <Li>
-          {abilities.map((abilities, i) => {
+          {pokemon.map((abilities, i) => {
             const ability = abilities.ability.name;
             return (
               <P style={{ fontWeight: "bold" }} key={i}>

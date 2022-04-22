@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Li, Ul, P, Img } from "./tags-stayle";
+import { Li, Ul, Img } from "./tags-stayle";
 
 export const PokemonsList = (colection) => {
   return (
@@ -8,10 +8,12 @@ export const PokemonsList = (colection) => {
         const name = props.name;
         const image = props.sprites.front_default;
         const id = props.id;
-        const types = props.types;
         return (
           <Li key={id}>
-            <Link to={"/id"} style={{ textDecoration: "none", color: "black" }}>
+            <Link
+              to={`/${id}`}
+              style={{ textDecoration: "none", color: "black" }}
+            >
               <Img src={image} alt="imagem pokemon frente" />
               <h2>{name}</h2>
             </Link>

@@ -7,11 +7,11 @@ import { AppRoutes } from "./pages/routes";
 function App() {
   return (
     <>
-      <ThemeProvider>
-        <ThemeTogglerButton/>
-        <GlobalStyled />
-        <AppRoutes />
-      </ThemeProvider>
+      {/* <ThemeProvider> */}
+      {/* <ThemeTogglerButton/> */}
+      <GlobalStyled />
+      <AppRoutes />
+      {/* </ThemeProvider> */}
     </>
   );
 }
