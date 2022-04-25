@@ -4,17 +4,19 @@ export const themes = {
   light: {
     background: "#eee",
     color: "#000",
+    hover: "linear-gradient(200deg, #e4e7e0, #57acdc)",
   },
   dark: {
-    background: "#000",
+    background: "#494848",
     color: "#fff",
+    hover: "linear-gradient(200deg, #000, #57acdc)",
   },
 };
 
 export const ThemeContext = createContext({});
 
 export const ThemeProvider = (props) => {
-    const [theme, setTheme] = useState(themes)
+  const [theme, setTheme] = useState(themes);
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       {props.children}

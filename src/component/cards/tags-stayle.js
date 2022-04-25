@@ -7,9 +7,15 @@ export const GlobalStyled = createGlobalStyle`
      }
 `;
 
+export const Body = styled.body`
+  background: linear-gradient(to left, #000, #57acdc);
+  padding: 10px 0 20px 0;
+  height: 100%;
+`;
+
 export const Section = styled.section`
   padding: 5% 15%;
-  margin: 20px;
+  margin: 0 20px;
   border-radius: 25px;
   display: flex;
   align-itens: center;
@@ -18,6 +24,7 @@ export const Section = styled.section`
   flex-wrap: wrap;
   text-align: center;
   font-size: 26px;
+  background: #eee;
 `;
 
 export const Ul = styled.ul`
@@ -26,17 +33,19 @@ export const Ul = styled.ul`
   justify-content: space-between;
   flex-wrap: wrap;
 `;
+
 export const Li = styled.li`
   border: solid 2px #bcbfb3;
   border-radius: 5px;
   list-style-type: none;
   margin-bottom: 10px;
   :hover {
-    background: linear-gradient(200deg, #fff , #57acdc);
+    background: linear-gradient(200deg, #e4e7e0, #57acdc);
   }
 `;
 
 export const Button = styled.button`
+  cursor: pointer;
   padding: 5px;
   margin-left: 40%;
   border-radius: 5px;
@@ -44,19 +53,13 @@ export const Button = styled.button`
   height: 4rem;
   font-size: 24px;
   font-weight: 700;
-  background: linear-gradient(to bottom, #E4E7E0 , #57acdc);
+  background: linear-gradient(200deg, #000, #57acdc);
+  transition: all 2s ease-out;
   :hover {
-    background: linear-gradient(to top, #E4E7E0 , #57acdc);
+      background: linear-gradient(200deg, #e4e7e0, #57acdc);
   }
 `;
 
-export const Ol = styled.ol`
-  border: solid 1px #bcbfb3;
-  margin: 5px;
-  padding: 2px;
-  text-align: center;
-  border-radius: 8px;
-`;
 export const P = styled.p`
   margin: 10px;
   font-weight: 400;
