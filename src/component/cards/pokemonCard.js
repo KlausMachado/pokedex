@@ -1,5 +1,5 @@
 import { baseUrl } from "../variables";
-import { Img, Section, H1, Ul, Ol, Li, P } from "./tags-stayle";
+import { Img, Section, H1, Ul, Li } from "./tags-stayle";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -10,7 +10,7 @@ async function getPokemon(id) {
 }
 
 export function PokemonCardInfo() {
-  const [pokemon, setPokemon] = useState({});
+  const [pokemon, setPokemon] = useState({ data: [] });
 
   const { id } = useParams();
 
@@ -18,12 +18,14 @@ export function PokemonCardInfo() {
     const fetchData = async () => {
       const result = await getPokemon(id);
       setPokemon({
-        pokemon: result,
+        data: result,
       });
     };
     fetchData();
   }, []);
 
+  // console.log(pokemon.data)
+  // console.log(pokemon.data.types)
   return (
     <Section
       style={{
@@ -32,14 +34,8 @@ export function PokemonCardInfo() {
         padding: "50px",
       }}
     >
-      <Img src={pokemon.sprites.front_default} />
-      <H1>{pokemon.name}</H1>
-      <Ul style={{ justifyContent: "center" }}>
-        {pokemon.map((types, i) => {
-          const type = types.type.name;
-          return <Ol key={i}>{type}</Ol>;
-        })}
-      </Ul>
+      <Img src={pokemon.data.sprites?.front_default} />
+      <H1>{pokemon.data.name}</H1>
       <Ul
         style={{
           display: "block",
@@ -47,29 +43,27 @@ export function PokemonCardInfo() {
           background: "linear-gradient(to right, #E4E7E0 , #D9E5E8)",
         }}
       >
-        <Li>
-          {pokemon.map((moves, i) => {
-            const move = moves.move.name;
-            return <P key={i}>{move}</P>;
-          })}
-        </Li>
-      </Ul>
-      <Ul
-        style={{
-          padding: "0",
-          background: "linear-gradient(to left, #ede9d8 , #dbd2cf)",
-        }}
-      >
-        <Li>
-          {pokemon.map((abilities, i) => {
-            const ability = abilities.ability.name;
-            return (
-              <P style={{ fontWeight: "bold" }} key={i}>
-                {ability}
-              </P>
-            );
-          })}
-        </Li>
+        {Object.keys(pokemon.data).forEach(() => {
+          const types = pokemon.data.types;
+          return types.map((props, i) => {
+            const type = props.type.name;
+            // console.log(type);
+            return <Li key={i}>{type}</Li>;
+          });
+        })}
+
+        {Object.keys(pokemon.data).forEach((i) => {
+          const move = pokemon.data.moves;
+          return <Li key={i}>{move}</Li>;
+        })}
+        {Object.keys(pokemon).forEach((abilities, i) => {
+          const ability = abilities.ability;
+          return (
+            <Li style={{ fontWeight: "bold" }} key={i}>
+              {ability}
+            </Li>
+          );
+        })}
       </Ul>
     </Section>
   );
