@@ -11,7 +11,7 @@ export const themes = {
     background: "#494848",
     color: "#fff",
     hover: "linear-gradient(200deg, #000, #57acdc)",
-    src: 'src/images/noite.gif'
+    src: './src/images/noite.gif'
   },
 };
 
