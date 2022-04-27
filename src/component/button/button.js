@@ -8,6 +8,7 @@ export const Button = (props) => {
     <button
       {...props}
       style={{
+        padding: '2px',
         color: theme.color,
         background: theme.background,
         width: "150px",

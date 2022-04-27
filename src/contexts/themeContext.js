@@ -5,11 +5,13 @@ export const themes = {
     background: "#eee",
     color: "#000",
     hover: "linear-gradient(200deg, #e4e7e0, #57acdc)",
+    src: 'src/images/sol.gif'
   },
   dark: {
     background: "#494848",
     color: "#fff",
     hover: "linear-gradient(200deg, #000, #57acdc)",
+    src: 'src/images/noite.gif'
   },
 };
 
