@@ -35,7 +35,7 @@ const ColectionOfPokemons = () => {
         style={{ color: theme.color, background: theme.background }}
       />
       <Button
-        style={{ color: theme.color, background: theme.hover }}
+        style={{ color: theme.color, background: theme.background }}
         onClick={async () => {
           numberLimit.value += 5;
           setPokemon();

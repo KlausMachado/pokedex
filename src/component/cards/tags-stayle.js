@@ -25,6 +25,7 @@ export const Section = styled.section`
   text-align: center;
   font-size: 26px;
   background: #eee;
+  transition: all 0.8s ease-in-out;
 `;
 
 export const Ul = styled.ul`
@@ -35,26 +36,99 @@ export const Ul = styled.ul`
 `;
 
 export const Li = styled.li`
-  border: solid 2px #bcbfb3;
   border-radius: 5px;
   list-style-type: none;
   margin-bottom: 10px;
-  :hover {
-    transition-delay: 1s;
-    background: linear-gradient(200deg, #eee, #57acdc);
+  transition: all 0.8s;
+  cursor: pointer;
+  position: relative;
+  ::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s;
+    border-radius: 5px;
+  }
+  :hover::before {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+    border-radius: 5px;
+  }
+  ::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s;
+    border: 1px solid #406c84;
+    transform: scale(1.2, 1.2);
+    border-radius: 5px;
+  }
+  :hover::after {
+    opacity: 1;
+    transform: scale(1, 1);
+    border-radius: 5px;
   }
 `;
 
 export const Button = styled.button`
-  cursor: pointer;
-  padding: 5px;
-  margin-left: 40%;
-  border-radius: 5px;
-  width: 10rem;
-  height: 4rem;
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
   font-size: 24px;
-  font-weight: 700;
-  transition: all 2s ease-out;
+  width: 250px;
+  cursor: pointer;
+  color: #000;
+  border: none;
+  transition: all 0.3s;
+  position: relative;
+  left: 35%;
+  ::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-color: #406c84;
+    border-bottom-color: #406c84;
+    transform: scale(0.1, 1.5);
+  }
+  :hover::before {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+  ::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.3s;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  :hover::after {
+    opacity: 0;
+    transform: scale(0.2, 1);
+  }
 `;
 
 export const P = styled.p`
@@ -67,6 +141,7 @@ export const Img = styled.img`
   width: 150px;
   height: 150px;
 `;
+
 export const H1 = styled.h1`
   font-weight: bold;
   font-size: 40px;
