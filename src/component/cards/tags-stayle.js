@@ -37,6 +37,7 @@ export const Ul = styled.ul`
 
 export const Li = styled.li`
   border-radius: 5px;
+  box-shadow: 1px 1px 2px #406c84;
   list-style-type: none;
   margin-bottom: 10px;
   transition: all 0.8s;
@@ -85,10 +86,11 @@ export const Button = styled.button`
   height: 50px;
   text-align: center;
   font-size: 24px;
+  font-weight: bold;
   width: 250px;
   cursor: pointer;
   color: #000;
-  border: none;
+  border: 0.5px;
   transition: all 0.3s;
   position: relative;
   left: 35%;
