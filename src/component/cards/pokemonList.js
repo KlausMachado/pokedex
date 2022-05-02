@@ -12,7 +12,6 @@ export const PokemonsList = (colection) => {
         const name = props.name;
         const image = props.sprites.front_default;
         const id = props.id;
-
         return (
           <Li key={id}>
             <Link

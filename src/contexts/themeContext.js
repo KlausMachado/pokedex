@@ -4,21 +4,21 @@ export const themes = {
   light: {
     background: "#eee",
     color: "#000",
-    src: 'src/images/sol.gif'
+    src: "\u2600"
   },
   dark: {
     background: "#494848",
     color: "#fff",
-    src: './src/images/noite.gif'
+    src: "\uDF15"
   },
 };
 
 export const ThemeContext = createContext({});
 
 export const ThemeProvider = (props) => {
-  const [theme, setTheme] = useState(themes);
+  const [theme, setTheme] = useState(themes.light);
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme}}>
       {props.children}
     </ThemeContext.Provider>
   );

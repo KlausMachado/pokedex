@@ -1,6 +1,21 @@
 import { useContext } from "react";
 import { ThemeContext, themes } from "../../contexts/themeContext";
 import { Button } from "../button/button";
+import "./buttonTheme.css";
+
+function changesImage(theme) {
+  const classes = document.querySelector(".image");
+  if (theme === themes.dark) {
+    classes.classList.remove("light");
+    classes.classList.add("dark")
+    
+    console.log(classes);
+  } else {
+    classes.classList.remove("dark");
+    classes.classList.add("light");
+    console.log(classes);
+  }
+}
 
 export const ThemeTogglerButton = () => {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -21,11 +36,13 @@ export const ThemeTogglerButton = () => {
         POKEDEX
       </h1>
       <Button
-        onClick={() =>
-          setTheme(theme === themes.light ? themes.dark : themes.light)
-        }
+        className="buttonTheme"
+        onClick={() => {
+          setTheme(theme === themes.light ? themes.dark : themes.light);
+          changesImage(theme);
+        }}
       >
-        <img src={theme.src} alt="" style={{width: '25px', height: '25px'}}/>
+        <a href="#" className="image dark"></a>
       </Button>
     </div>
   );

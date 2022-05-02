@@ -1,0 +1,45 @@
+.buttonTheme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image.light {
+  width: 30px;
+  height: 30px;
+  background: url(../../images/luz-do-sol.png) center center no-repeat;
+  animation: changeIcon 1s;
+}
+
+.image.dark {
+  width: 30px;
+  height: 30px;
+  background: url(../../images/lua.png) center center no-repeat;
+  animation: changeIcon2 1s;
+}
+
+@keyframes changeIcon {
+  from {
+    background: url(../../images/lua.png) center center no-repeat;
+    transform: translateY(-12px);
+    opacity: 0;
+  }
+  to {
+    background: url(../../images/luz-do-sol.png) center center no-repeat;
+    transform: translateY(0);
+    opacity: 100%;
+  }
+}
+
+@keyframes changeIcon2 {
+  from {
+    background: url(../../images/luz-do-sol.png) center center no-repeat;
+    transform: translateY(-12px);
+    opacity: 0;
+  }
+  to {
+    background: url(../../images/lua.png) center center no-repeat;
+    transform: translateY(0);
+    opacity: 100%;
+  }
+}
