@@ -1,5 +1,5 @@
 import { baseUrl } from "../variables";
-import { Img, Section, H1, Ul, Li, P } from "./tags-stayle";
+import { Img, Section, H1, Ul } from "./tags-stayle";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -10,6 +10,7 @@ async function getPokemon(id) {
 }
 
 export function PokemonCardInfo() {
+  console.log("até aqui");
   const [pokemon, setPokemon] = useState({ data: [] });
 
   const { id } = useParams();
@@ -24,7 +25,7 @@ export function PokemonCardInfo() {
     fetchData();
   }, []);
 
-  // console.log(pokemon.data)
+  console.log(pokemon.data);
   return (
     <Section
       style={{
@@ -35,15 +36,12 @@ export function PokemonCardInfo() {
     >
       <Img src={pokemon.data.sprites?.front_default} />
       <H1>{pokemon.data.name}</H1>
-      <Ul
-        style={{
-          display: "block",
-          padding: "0",
-          background: "linear-gradient(to right, #E4E7E0 , #D9E5E8)",
-        }}
-      >
-        {Object.keys(pokemon.data).forEach(() => {
-          if (pokemon.data.hasOwnProperty("types")) {
+    </Section>
+  );
+}
+
+/* {Object.keys(pokemon.data).forEach(() => {
+          // if (pokemon.data.hasOwnProperty("types")) {
             const types = pokemon.data.types;
             // console.log(types);
             return types.map((props, i) => {
@@ -54,40 +52,14 @@ export function PokemonCardInfo() {
                 </Li>
               );
             });
-          } else {
-            <P>Carregando...</P>;
-          }
-        })}
-
-        {Object.keys(pokemon.data).forEach(() => {
-          if (pokemon.data.hasOwnProperty("moves")) {
-            const moves = pokemon.data.moves;
-            return moves.map((props, i) => {
-              const move = props.move.name;
-              // console.log(move);
-              return <Li key={i}>{move}</Li>;
-            });
-          } else {
-            <P>Carregando...</P>;
-          }
-        })}
-        {Object.keys(pokemon.data).forEach(() => {
-          if (pokemon.data.hasOwnProperty("types")) {
-            const abilitys = pokemon.data.abilities;
-            return abilitys.map((props, i) => {
-              const ability = props.ability.name;
-              // console.log(ability);
-              return (
-                <Li style={{ fontWeight: "bold" }} key={i}>
-                  {ability}
-                </Li>
-              );
-            });
-          } else {
-            <P>Carregando...</P>;
-          }
-        })}
-      </Ul>
-    </Section>
-  );
-}
+          // } else {
+          //   <P>Carregando...</P>;
+          // }
+          <Ul
+        style={{
+          display: "block",
+          padding: "0",
+          background: "linear-gradient(to right, #E4E7E0 , #D9E5E8)",
+        }}
+      ></Ul>
+        })} */
