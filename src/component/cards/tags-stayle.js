@@ -146,6 +146,6 @@ export const Img = styled.img`
 
 export const H1 = styled.h1`
   font-weight: bold;
-  font-size: 40px;
+  font-size: 50px;
   text-shadow: grey 0.1em 0.1em 0.2em;
 `;

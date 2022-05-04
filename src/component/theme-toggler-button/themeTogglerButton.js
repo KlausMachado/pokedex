@@ -13,7 +13,6 @@ function changesImage(theme) {
   } else {
     classes.classList.remove("dark");
     classes.classList.add("light");
-    console.log(classes);
   }
 }
 
@@ -42,7 +41,7 @@ export const ThemeTogglerButton = () => {
           changesImage(theme);
         }}
       >
-        <a href="#" className="image dark"></a>
+        <a className="image dark"></a>
       </Button>
     </div>
   );
