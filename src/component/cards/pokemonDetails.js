@@ -37,8 +37,10 @@ export const Abilities = (props) => {
   if (props.pokemon.abilities != undefined) {
     return props.pokemon.abilities.map((props, i) => {
       const ability = props.ability;
-      console.log(ability)
       const abilityName = ability.name;
+      const urlAbility = ability.url;
+      // const descriptionAbility =  getAbilities(urlAbility);
+      // console.log(descriptionAbility);
       return (
         <Li key={i}>
           <P style={{ fontSize: "30px" }}>{abilityName}</P>
@@ -50,6 +52,12 @@ export const Abilities = (props) => {
   }
 };
 
+async function getAbilities(url) {
+  const response = await fetch(`${url}`);
+  const result = await response.json();
+  // console.log(result);
+  return result;
+}
 
 //styled-components
 const Li = styled.li`
