@@ -11,7 +11,6 @@ async function getPokemon(id) {
 }
 
 export function PokemonCardInfo() {
-  console.log("até aqui");
   const [pokemon, setPokemon] = useState({ data: [] });
 
   const { id } = useParams();
@@ -29,6 +28,22 @@ export function PokemonCardInfo() {
   // console.log(pokemon.data);
   const { theme } = useContext(ThemeContext);
 
+  // console.log(pokemon.data.types)
+
+  const Types = () => {
+    if (pokemon.data.hasOwnProperty("types")) {
+      pokemon.data.types.map((props) => {
+        // console.log(props.type)
+        const type = props.type;
+        const typeName = type.name;
+        // console.log(typeName)
+        return <P>{typeName}</P>;
+      });
+    } else {
+      <P>Carregando...</P>;
+    }
+  };
+
   return (
     <Section
       style={{
@@ -40,7 +55,15 @@ export function PokemonCardInfo() {
     >
       <Img src={pokemon.data.sprites?.front_default} />
       <H1 style={{ color: theme.color }}>{pokemon.data.name}</H1>
-      <Ul
+      <div>
+        <Types />
+      </div>
+    </Section>
+  );
+}
+
+{
+  /* <Ul
         style={{
           display: "flex",
           width: "200px",
@@ -48,28 +71,22 @@ export function PokemonCardInfo() {
           background: theme.background,
         }}
       >
-        {Object.keys(pokemon.data).forEach(() => {
-          if (pokemon.data.hasOwnProperty("types")) {
-            const types = pokemon.data.types;
-            // console.log(types);
-            const type = types[0].type.name;
-            console.log(type);
-            return (
-              <Li
-                style={{
-                  width: "100px",
-                  height: "100px",
-                  background: theme.background,
-                }}
-              >
-                <P style={{ color: theme.color }}>{type}</P>
-              </Li>
-            );
-          } else {
-            <P>Carregando...</P>;
-          }
-        })}
+
+<Li
+          style={{
+            width: "100px",
+            height: "100px",
+            background: theme.background,
+          }}
+        >
+          <P style={{ color: theme.color }}>{types}</P>
+        </Li>
+        {}
       </Ul>
-    </Section>
-  );
+
+      
+          
+          Object.keys(pokemon.data).forEach(() => {
+          const types = pokemon.data
+        })*/
 }
