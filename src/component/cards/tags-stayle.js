@@ -42,42 +42,8 @@ export const Li = styled.li`
   margin-bottom: 10px;
   transition: all 0.8s;
   cursor: pointer;
-  position: relative;
-  ::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: all 0.5s;
-    border-radius: 5px;
-  }
-  :hover::before {
-    opacity: 0;
-    transform: scale(0.5, 0.5);
-    border-radius: 5px;
-  }
-  ::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0;
-    transition: all 0.5s;
-    border: 1px solid #406c84;
-    transform: scale(1.2, 1.2);
-    border-radius: 5px;
-  }
-  :hover::after {
-    opacity: 1;
-    transform: scale(1, 1);
-    border-radius: 5px;
+  :hover {
+    transform: scale(1.1, 1.1);
   }
 `;
 

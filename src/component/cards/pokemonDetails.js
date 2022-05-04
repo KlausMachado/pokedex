@@ -33,17 +33,35 @@ export const Moves = (props) => {
   }
 };
 
+async function getAbilities(url) {
+  const response = await fetch(`${url}`);
+  const result = await response.json();
+  // console.log(result);
+  return result;
+}
+
+const Description = async (props) => {
+  const description = await getAbilities(props);
+  // const result = await Promise.all(description);
+  return description.effect_entries.map((effect) => {
+    if (effect.language.name === "en") {
+      return <P>{effect.effect}</P>;
+    }
+  });
+};
+
 export const Abilities = (props) => {
   if (props.pokemon.abilities != undefined) {
     return props.pokemon.abilities.map((props, i) => {
       const ability = props.ability;
       const abilityName = ability.name;
       const urlAbility = ability.url;
-      // const descriptionAbility =  getAbilities(urlAbility);
-      // console.log(descriptionAbility);
       return (
         <Li key={i}>
-          <P style={{ fontSize: "30px" }}>{abilityName}</P>
+          <div>
+            <P style={{ fontSize: "30px" }}>{abilityName}</P>
+            {/* <Description props={urlAbility} /> */}
+          </div>
         </Li>
       );
     });
@@ -51,13 +69,6 @@ export const Abilities = (props) => {
     <P>Carregando...</P>;
   }
 };
-
-async function getAbilities(url) {
-  const response = await fetch(`${url}`);
-  const result = await response.json();
-  // console.log(result);
-  return result;
-}
 
 //styled-components
 const Li = styled.li`
