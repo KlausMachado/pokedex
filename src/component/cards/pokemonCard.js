@@ -53,7 +53,7 @@ export function PokemonCardInfo() {
         padding: "50px",
       }}
     >
-      <Img src={pokemon.data.sprites?.front_default} />
+      <Img src={pokemon.data.sprites?.front_default} style={{width: '250px', height: '250px'}}/>
       <H1 style={{ color: theme.color }}>{pokemon.data.name}</H1>
       <div>
         <Types />
