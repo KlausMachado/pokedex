@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { ThemeContext } from "../../contexts/themeContext";
 import styled from "styled-components";
-import { Abilities, Moves, Types } from "./pokemonDetails";
+import { Abilities, Description, Moves, Types } from "./pokemonDetails";
 
 async function getPokemon(id) {
   const response = await fetch(`${baseUrl}${id}`);

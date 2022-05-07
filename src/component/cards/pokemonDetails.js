@@ -1,5 +1,6 @@
 import { P } from "./tags-stayle";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 export const Types = (props) => {
   if (props.pokemon.types != undefined) {
@@ -40,12 +41,27 @@ async function getAbilities(url) {
   return result;
 }
 
-const Description = async (props) => {
-  const description = await getAbilities(props);
-  // const result = await Promise.all(description);
-  return description.effect_entries.map((effect) => {
+// return description.effect_entries.map((effect) => {
+//   if (effect.language.name === "en") {
+//     return <P>{effect.effect}</P>;
+//   }
+// });
+
+const Description = (props) => {
+  const [url, setUrl] = useState({ data: [] });
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await getAbilities(props.props);
+      setUrl({
+        data: result,
+      });
+    };
+    fetchData();
+  }, []);
+  console.log(url.data);
+  return url.data.effect_entries.map((effect, i) => {
     if (effect.language.name === "en") {
-      return <P>{effect.effect}</P>;
+      return <P key={i}>{effect.effect}</P>;
     }
   });
 };
@@ -56,11 +72,12 @@ export const Abilities = (props) => {
       const ability = props.ability;
       const abilityName = ability.name;
       const urlAbility = ability.url;
+
       return (
         <Li key={i}>
           <div>
             <P style={{ fontSize: "30px" }}>{abilityName}</P>
-            {/* <Description props={urlAbility} /> */}
+            <Description props={urlAbility} />
           </div>
         </Li>
       );
