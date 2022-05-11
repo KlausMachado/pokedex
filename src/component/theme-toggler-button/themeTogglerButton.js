@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import styledComponents from "styled-components";
 import { ThemeContext, themes } from "../../contexts/themeContext";
 import { Button } from "../button/button";
 import "./buttonTheme.css";
@@ -7,8 +8,8 @@ function changesImage(theme) {
   const classes = document.querySelector(".image");
   if (theme === themes.dark) {
     classes.classList.remove("light");
-    classes.classList.add("dark")
-    
+    classes.classList.add("dark");
+
     console.log(classes);
   } else {
     classes.classList.remove("dark");
@@ -20,20 +21,7 @@ export const ThemeTogglerButton = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   return (
     <div style={{ display: "flex", position: "relative" }}>
-      <h1
-        style={{
-          position: "absolute",
-          right: "36%",
-          top: "-60%",
-          fontSize: "106px",
-          fontFamily: "Bangers",
-          color: "#FDCF00",
-          letterSpacing: ".4rem",
-          textShadow: "0.1em 0.1em 0.2em #406c84",
-        }}
-      >
-        POKEDEX
-      </h1>
+      <H1>POKEDEX</H1>
       <Button
         className="buttonTheme"
         onClick={() => {
@@ -46,3 +34,32 @@ export const ThemeTogglerButton = () => {
     </div>
   );
 };
+
+const H1 = styledComponents.h1`
+  position: absolute;
+  left: 35%;
+  top: -60%;
+  font-size: 106px;
+  font-family: Bangers;
+  color: #FDCF00;
+  letter-spacing: .4rem;
+  text-shadow: 0.1em 0.1em 0.2em #406c84;
+
+  @media (max-width: 950px) {
+    left: 30%;
+  }
+
+  @media (max-width: 768px) {
+    left: 27%;
+  };
+
+  @media (max-width: 425px) {
+    font-size: 50px;
+    top: 60%;
+
+  };
+
+  @media (max-width: 320px) {
+    left: 20%;
+  }
+`;

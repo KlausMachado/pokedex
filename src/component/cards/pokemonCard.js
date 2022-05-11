@@ -1,10 +1,11 @@
 import { baseUrl } from "../variables";
-import { Img, Section, H1 } from "./tags-stayle";
+import { Section, H1 } from "./tags-stayle";
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { ThemeContext } from "../../contexts/themeContext";
 import styled from "styled-components";
 import { Abilities, Moves, Types } from "./pokemonDetails";
+import styledComponents from "styled-components";
 
 async function getPokemon(id) {
   const response = await fetch(`${baseUrl}${id}`);
@@ -35,16 +36,9 @@ export function PokemonCardInfo() {
         style={{
           color: theme.color,
           background: theme.background,
-          display: "block",
-          padding: "50px",
-          marginLeft: "80px",
-          marginRight: "80px",
         }}
       >
-        <Img
-          src={pokemon.data.sprites?.front_default}
-          style={{ width: "250px", height: "250px" }}
-        />
+        <Img src={pokemon.data.sprites?.front_default} />
         <H1 style={{ color: theme.color, marginTop: "0" }}>
           {pokemon.data.name}
         </H1>
@@ -68,7 +62,7 @@ export function PokemonCardInfo() {
   } else {
     <Section>
       <H1>Carregando...</H1>
-    </Section>
+    </Section>;
   }
 }
 
@@ -77,9 +71,14 @@ const Div = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   width: 100%;
   height: 100%;
   margin-bottom: 80px;
+
+  @media (max-width: 425px) {
+    margin-bottom: 0;
+  }
 `;
 
 const Div2 = styled.div`
@@ -96,6 +95,11 @@ const Div2 = styled.div`
     border: 0.2px solid #57abdc39;
     margin-bottom: 125px;
     margin-top: -105px;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    margin: 0 5%;
   }
 `;
 
@@ -114,5 +118,19 @@ const H2 = styled.h2`
     width: 50px;
     height: 50px;
     left: 40%;
+  }
+`;
+
+const Img = styledComponents.img`
+  width: 250px;
+  height: 250px; 
+  margin-left: 35%;
+
+  @media (max-width: 475px) {
+    margin-left: 17%;
+  }
+
+   @media (max-width: 320px) {
+    margin-left: 10%;
   }
 `;

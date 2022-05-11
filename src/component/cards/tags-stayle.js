@@ -15,7 +15,7 @@ export const Body = styled.body`
 
 export const Section = styled.section`
   padding: 5% 15%;
-  margin: 0 20px;
+  margin: 0 30px;
   border-radius: 25px;
   display: flex;
   align-itens: center;
@@ -26,6 +26,12 @@ export const Section = styled.section`
   font-size: 26px;
   background: #eee;
   transition: all 0.8s ease-in-out;
+
+  @media (max-width: 768px) {
+    width: 90vw;
+    padding: 55px 0;
+    margin: 0 5%;
+  }
 `;
 
 export const Ul = styled.ul`
@@ -33,13 +39,20 @@ export const Ul = styled.ul`
   align-itens: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  @media (max-width: 768px) {
+    padding: 0 5%;
+  }
+
+  @media (max-width: 375px) {
+    padding-left: 25%;
+  }
 `;
 
 export const Li = styled.li`
   border-radius: 5px;
   box-shadow: 1px 1px 2px #406c84;
   list-style-type: none;
-  margin-bottom: 10px;
+  margin: 10px;
   transition: all 0.8s;
   cursor: pointer;
   :hover {
@@ -96,6 +109,15 @@ export const Button = styled.button`
   :hover::after {
     opacity: 0;
     transform: scale(0.2, 1);
+  }
+
+  @media (max-width: 425px) {
+    width: 150px;
+    left: 32%;
+  }
+
+  @media (max-width: 375px) {
+    left: 25%;
   }
 `;
 
