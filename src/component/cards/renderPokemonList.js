@@ -31,11 +31,11 @@ const ColectionOfPokemons = () => {
   if (colection.pokemons.length !== 0) {
     return (
       <Section style={{ color: theme.color, background: theme.background }}>
-        <PokemonsList
+        <PokemonsList test-id="listaPokemon"
           pokemons={colection.pokemons}
           style={{ color: theme.color, background: theme.background }}
         />
-        <Button
+        <Button test-id-button="buttonMorePokemons"
           style={{ color: theme.color, background: theme.background }}
           onClick={async () => {
             numberLimit.value += 10;
