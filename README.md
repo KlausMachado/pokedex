@@ -28,6 +28,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [ReactRouter](https://v5.reactrouter.com/web/guides/quick-start)
 - [StyledComponents](https://styled-components.com/)
 - [ContextApi](https://pt-br.reactjs.org/docs/context.html)
+- [ApiPokemon](https://pokeapi.co/)
 ---
 
 ## 🗂 Como baixar o projeto
