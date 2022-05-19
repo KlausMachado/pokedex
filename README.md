@@ -1,6 +1,5 @@
 <h1 align="center">
     POKEDEX
-=======
 </h1>
 
 <h1>
