@@ -1,5 +1,8 @@
 <h1 align="center">
+<<<<<<< HEAD
     POKEDEX
+=======
+>>>>>>> 804a30544535ba96382107001b5822ed78d8c498
 </h1>
 
 <h1>
@@ -13,7 +16,7 @@
 - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
 - [Como baixar o projeto](#-como-baixar-o-projeto)
 
-## 🔖&nbsp; Sobre
+## 📑 Sobre
 
 O projeto **Pokedex** é uma lista de Pokemons que foi criado dentro do curso **DevQuest** com o intuito de colocarmos em prática todo conteúdo estudado durante o curso. Principalmente React. 
 Essa aplicação é uma SPA onde cada pokemon da lista possui uma pagina de detalhes.
@@ -22,12 +25,13 @@ Essa aplicação é uma SPA onde cada pokemon da lista possui uma pagina de deta
 
 ## 💻 Tecnologias utilizadas
 
-O projeto foi desenvolvido utilizando as seguintes tecnologias
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 - [ReactJS](https://reactjs.org)
 - [ReactRouter](https://v5.reactrouter.com/web/guides/quick-start)
 - [StyledComponents](https://styled-components.com/)
 - [ContextApi](https://pt-br.reactjs.org/docs/context.html)
+- [ApiPokemon](https://pokeapi.co/)
 ---
 
 ## 🗂 Como baixar o projeto
