@@ -1,21 +1,9 @@
-# Projeto POKEDEX 
-Um projeto que está sendo desenolvido com React, usando API de Pokemon, para mostar uma lista de cards de Pokemons.
-
-# Desafios
-Nesse projeto estou colocando em pratica:
-  *JSX 
-  *Context API
-  *Styled components
-  *Hooks React, como useState e useEffect
-  *React Router
-
-
 <h1 align="center">
-    <img src="https://ik.imagekit.io/kudysak8uv/logo2_wkzFleEF6.png">
+    POKEDEX
 </h1>
 
 <h1>
-    <img src="">
+    <img src="public/pokedex.gif">
 </h1>
 
 
@@ -61,4 +49,4 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 
 ---
 
-Desenvolvido 💜 por Daniele Leão Evangelista
+Desenvolvido por Klaus Machado
