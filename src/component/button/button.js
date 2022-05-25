@@ -24,8 +24,11 @@ const Btn = styledComponents.button`
   font-weight: bold;
   margin: 10px;
   border-radius: 10px;
+  margin-left: -70%;
   @media (max-width: 768px) {
     width: 100px;
-    margin-left: 6%;
+  }
+  @media (max-width: 425px) {
+    margin-left: -50%;
   }
 `;

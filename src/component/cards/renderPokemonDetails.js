@@ -38,7 +38,7 @@ export function PokemonCardInfo() {
           background: theme.background,
         }}
       >
-        <Img src={pokemon.data.sprites?.front_default} />
+        <Img src={pokemon.data.sprites?.front_default} alt="image pokemon" />
         <H1 style={{ color: theme.color, marginTop: "0" }}>
           {pokemon.data.name}
         </H1>
