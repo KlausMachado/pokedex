@@ -25,6 +25,7 @@ const Btn = styledComponents.button`
   margin: 10px;
   border-radius: 10px;
   margin-left: -70%;
+  cursor: pointer;
   @media (max-width: 768px) {
     width: 100px;
   }

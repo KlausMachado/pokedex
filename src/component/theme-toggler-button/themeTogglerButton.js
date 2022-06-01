@@ -20,8 +20,26 @@ function changesImage(theme) {
 export const ThemeTogglerButton = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   return (
-    <header style={{ display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
-      <H1>POKEDEX</H1>
+    <header
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+      }}
+    >
+      <H1>
+        <a
+          href="/"
+          style={{
+            textDecoration: "none",
+            color: "#FDCF00",
+            fontFamily: "Bangers",
+          }}
+        >
+          POKEDEX
+        </a>
+      </H1>
       <Button
         className="buttonTheme"
         onClick={() => {
@@ -37,10 +55,8 @@ export const ThemeTogglerButton = () => {
 
 const H1 = styledComponents.h1`
   position: absolute;
-  top: -60%;
+  top: -90%;
   font-size: 106px;
-  font-family: Bangers;
-  color: #FDCF00;
   letter-spacing: .4rem;
   text-shadow: 0.1em 0.1em 0.2em #406c84;
 
