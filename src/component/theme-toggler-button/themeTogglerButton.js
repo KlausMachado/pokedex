@@ -9,8 +9,6 @@ function changesImage(theme) {
   if (theme === themes.dark) {
     classes.classList.remove("light");
     classes.classList.add("dark");
-
-    console.log(classes);
   } else {
     classes.classList.remove("dark");
     classes.classList.add("light");
