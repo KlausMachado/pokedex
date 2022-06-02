@@ -38,10 +38,12 @@ export function PokemonCardInfo() {
           background: theme.background,
         }}
       >
-        <Img src={pokemon.data.sprites?.front_default} alt="image pokemon" />
-        <H1 style={{ color: theme.color, marginTop: "0" }}>
-          {pokemon.data.name}
-        </H1>
+        <div>
+          <Img src={pokemon.data.sprites?.front_default} alt="image pokemon" />
+          <H1 style={{ color: theme.color, marginTop: "0" }}>
+            {pokemon.data.name}
+          </H1>
+        </div>
         <Div
           style={{
             background: theme.background,
@@ -123,14 +125,5 @@ const H2 = styled.h2`
 
 const Img = styledComponents.img`
   width: 250px;
-  height: 250px; 
-  margin-left: 35%;
-
-  @media (max-width: 475px) {
-    margin-left: 17%;
-  }
-
-   @media (max-width: 320px) {
-    margin-left: 10%;
-  }
+  height: 250px;
 `;
