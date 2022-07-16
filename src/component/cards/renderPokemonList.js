@@ -2,7 +2,7 @@ import { getPokemons, getColectionPokemons } from "../getPokemon";
 import { useContext, useEffect, useState } from "react";
 import { Button, Section, H1 } from "./tags-stayle";
 import { PokemonsList } from "./pokemonList";
-import { numberLimit } from "../variables";
+import { numberLimit, offset} from "../variables";
 import { ThemeContext } from "../../contexts/themeContext";
 
 const ColectionOfPokemons = () => {
@@ -11,11 +11,11 @@ const ColectionOfPokemons = () => {
   });
 
   const setPokemon = async () => {
-    const colectionPokemons = await getColectionPokemons(numberLimit.value);
+    const colectionPokemons = await getColectionPokemons(numberLimit.value, offset.value);
     const data = await getPokemons(colectionPokemons);
     const result = await Promise.all(data);
     setPokemons({
-      pokemons: result,
+      pokemons:[...colection.pokemons, ...result] 
     });
   };
 
@@ -41,6 +41,7 @@ const ColectionOfPokemons = () => {
           style={{ color: theme.color, background: theme.background }}
           onClick={async () => {
             numberLimit.value += 10;
+            offset.value += 10;
             setPokemon();
           }}
         >
