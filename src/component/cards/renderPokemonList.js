@@ -15,7 +15,7 @@ const ColectionOfPokemons = () => {
     const data = await getPokemons(colectionPokemons);
     const result = await Promise.all(data);
     setPokemons({
-      pokemons:[...colection.pokemons, ...result] 
+      pokemons:[...result] 
     });
   };
 
@@ -40,7 +40,7 @@ const ColectionOfPokemons = () => {
           test-id-button="buttonMorePokemons"
           style={{ color: theme.color, background: theme.background }}
           onClick={async () => {
-            numberLimit.value += 10;
+            numberLimit.value += 8;
             setPokemon();
           }}
         >

@@ -19,6 +19,7 @@ export const Section = styled.section`
   border-radius: 25px;
   display: flex;
   align-itens: center;
+  align-content: center;
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
@@ -111,13 +112,29 @@ export const Button = styled.button`
     transform: scale(0.2, 1);
   }
 
+  @media (max-width: 2560px) {
+    left: 45%;
+  }
+
+  @media (max-width: 1440px) {
+    left: 40%;
+  }
+
+  @media (max-width: 1024px) {
+    left: 35%;
+  }
+
+  @media (max-width: 768px) {
+    left: 32%;
+  }
+
   @media (max-width: 425px) {
     width: 150px;
     left: 32%;
   }
 
   @media (max-width: 375px) {
-    left: 25%;
+    left: 28%;
   }
 `;
 
