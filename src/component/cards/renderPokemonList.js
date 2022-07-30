@@ -6,17 +6,14 @@ import { numberLimit, offset} from "../variables";
 import { ThemeContext } from "../../contexts/themeContext";
 
 const ColectionOfPokemons = () => {
-  const [colection, setPokemons] = useState({
-    pokemons: [],
-  });
+  const [pokemons, setPokemons] = useState([]);
+  let [paginationOffset, setpaginationOffset] = useState(0)
 
   const setPokemon = async () => {
-    const colectionPokemons = await getColectionPokemons(numberLimit.value, offset.value);
+    const colectionPokemons = await getColectionPokemons(numberLimit.value, paginationOffset.value);
     const data = await getPokemons(colectionPokemons);
     const result = await Promise.all(data);
-    setPokemons({
-      pokemons:[...result] 
-    });
+    setPokemons([...pokemons, ...result] );
   };
 
   useEffect(() => {
@@ -28,19 +25,20 @@ const ColectionOfPokemons = () => {
 
   const { theme } = useContext(ThemeContext);
 
-  if (colection.pokemons.length !== 0) {
+  if (pokemons.length !== 0) {
     return (
       <Section style={{ color: theme.color, background: theme.background }}>
         <PokemonsList
           test-id="listaPokemon"
-          pokemons={colection.pokemons}
+          pokemons={pokemons}
           style={{ color: theme.color, background: theme.background }}
         />
         <Button
           test-id-button="buttonMorePokemons"
           style={{ color: theme.color, background: theme.background }}
           onClick={async () => {
-            numberLimit.value += 8;
+            paginationOffset += 8;
+            setpaginationOffset(paginationOffset + numberLimit.value)           
             setPokemon();
           }}
         >

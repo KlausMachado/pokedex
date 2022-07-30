@@ -3,13 +3,14 @@ import { Li, Ul, Img, H1 } from "./tags-stayle";
 import { ThemeContext } from "../../contexts/themeContext";
 import { useContext } from "react";
 
-export const PokemonsList = (colection) => {
+export const PokemonsList = (pokemons, id) => {
   const { theme } = useContext(ThemeContext);
 
-  if (colection !== undefined) {
+  if (pokemons !== undefined) {
     return (
-      <Ul >
-        {colection.pokemons.map((props) => {
+      <Ul key={id} >
+        {pokemons.pokemons.map((props) => {
+          console.log(pokemons.pokemons)
           const name = props.name;
           const image = props.sprites.front_default;
           const id = props.id;

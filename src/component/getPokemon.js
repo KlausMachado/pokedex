@@ -1,7 +1,7 @@
 import { baseUrl } from "./variables";
 
-export async function getColectionPokemons(numberLimit) {
-  const response = await fetch(`${baseUrl}?limit=${numberLimit}`);
+export async function getColectionPokemons(numberLimit, offset) {
+  const response = await fetch(`${baseUrl}?limit=${numberLimit}&offset=${offset}`);
   const responseJson = await response.json();
   return responseJson.results;
 }
