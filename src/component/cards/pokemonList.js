@@ -13,9 +13,8 @@ export const PokemonsList = (pokemons, id) => {
           console.log(pokemons.pokemons)
           const name = props.name;
           const image = props.sprites.front_default;
-          const id = props.id;
           return (
-            <Li key={id}>
+            <Li key={props.id}>
               <Link
                 to={`/${id}`}
                 style={{ textDecoration: "none", color: "black" }}
