@@ -2,18 +2,21 @@ import { getPokemons, getColectionPokemons } from "../getPokemon";
 import { useContext, useEffect, useState } from "react";
 import { Button, Section, H1 } from "./tags-stayle";
 import { PokemonsList } from "./pokemonList";
-import { numberLimit, offset} from "../variables";
+import { numberLimit } from "../variables";
 import { ThemeContext } from "../../contexts/themeContext";
 
 const ColectionOfPokemons = () => {
   const [pokemons, setPokemons] = useState([]);
-  let [paginationOffset, setpaginationOffset] = useState(0)
+  let [paginationOffset, setpaginationOffset] = useState(0);
 
   const setPokemon = async () => {
-    const colectionPokemons = await getColectionPokemons(numberLimit.value, paginationOffset.value);
+    const colectionPokemons = await getColectionPokemons(
+      numberLimit.value,
+      paginationOffset
+    );
     const data = await getPokemons(colectionPokemons);
     const result = await Promise.all(data);
-    setPokemons([...pokemons, ...result] );
+    setPokemons([...pokemons, ...result]);
   };
 
   useEffect(() => {
@@ -38,7 +41,7 @@ const ColectionOfPokemons = () => {
           style={{ color: theme.color, background: theme.background }}
           onClick={async () => {
             paginationOffset += 8;
-            setpaginationOffset(paginationOffset + numberLimit.value)           
+            setpaginationOffset(paginationOffset + numberLimit.value);
             setPokemon();
           }}
         >

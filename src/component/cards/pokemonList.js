@@ -10,7 +10,6 @@ export const PokemonsList = (pokemons, id) => {
     return (
       <Ul key={id} >
         {pokemons.pokemons.map((props) => {
-          console.log(pokemons.pokemons)
           const name = props.name;
           const image = props.sprites.front_default;
           return (
